@@ -213,7 +213,12 @@ public class SongViewController {
 			cancel();
 		}
 		rTitle.setText("Song Details");
-		listView.getSelectionModel().select(index);
+		if (listView.getSelectionModel().getSelectedItem() == null) {
+			listView.getSelectionModel().select(0);
+			songDetailV2();
+		}else {
+			listView.getSelectionModel().select(index);
+		}
 	}
 	public void deleteSong(ActionEvent e) throws IOException {
 		if (listView.getSelectionModel().getSelectedItem() != null) {
